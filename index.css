@@ -256,3 +256,23 @@ button:hover {
   75%  { transform: translateX(-15px) rotate(-3deg); }
   100% { transform: translateX(0px) rotate(0deg); }
 }
+
+@media (max-width: 768px) {
+  body::before {
+    content: "Choppodoro is best experienced on desktop! 🍂";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #EED9B9;
+    border: 3px solid #D53E0F;
+    border-radius: 16px;
+    padding: 30px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 20px;
+    color: #5E0006;
+    text-align: center;
+    z-index: 9999;
+    width: 80%;
+  }
+}
