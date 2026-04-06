@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pomodoro Chopper</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="about.css">
+</head> 
+<body>
+    <div id="leaves-container"></div>
+  <div id="navbar">
+    <div id="brand">CHOPPODORO</div>
+    <div id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+<div id="about">
+    <h3 id="what">What is Choppodoro?</h3>
+    <p>Choppodoro is a Pomodoro productivity timer built around everyone's 
+       favorite little doctor — Tony Tony Chopper from One Piece. 
+       It combines a proven study technique with a warm, cozy aesthetic 
+       to make focusing feel less like a chore and more like an adventure. 
+       Whether you have an exam tomorrow or a project due next week, 
+       Choppodoro is here to help you get through it — one session at a time.</p>
+    <h4 id="technique">The Pomodoro Technique — what is it?</h4>
+    <p>The Pomodoro Technique was developed by Francesco Cirillo in the 
+       late 1980s. The idea is simple — work in short, focused bursts 
+       with regular breaks in between. This works because your brain 
+       can only maintain deep focus for a limited time. Forcing yourself 
+       to take breaks actually makes you more productive overall, not less. 
+       It also makes big overwhelming tasks feel manageable because you're 
+       only committing to 25 minutes at a time — not the entire task.</p>
+    <h5 id="who">Who is Choppodoro for?</h5>
+    <p>Choppodoro is for anyone who wants to be more intentional about 
+       how they spend their time. Students preparing for exams. Developers 
+       working through a tough problem. Writers trying to hit a word count. 
+       Basically anyone who sits down to work and ends up on their phone 
+       twenty minutes later. If that sounds familiar — this is for you. 
+       And if you happen to be a One Piece fan, well, that's just a bonus.</p>
+    <h6 id="how">How to use Choppodoro effectively?</h6>
+    <p>Getting the most out of Choppodoro is less about the timer 
+       and more about the habits you build around it. Here's how:
+       <ol>
+        <li>Decide what you're working on BEFORE you click Start. 
+               Don't start the timer and then figure out what to do — 
+               that defeats the whole purpose. One task, one session.</li>
+        <li>Set your focus time. The default is 25 minutes which works 
+               for most people. If you're just starting out, even 15 minutes 
+               is fine. Build up gradually.</li>
+        <li>Set your break time. 5 minutes is the standard. Use it to 
+               actually step away — stretch, get water, look out the window. 
+               Not to check Instagram.</li>
+        <li>Click Start and commit. Once the timer is running, 
+               the rule is simple — no switching tasks, no checking 
+               notifications, no "just one quick thing." 
+               Chopper is watching. 🍂</li>
+        <li>When the session ends, take your break fully. 
+               Your brain needs it. Don't skip it thinking you're on a roll — 
+               that's how burnout happens.</li>
+        <li>After 4 sessions, take a long break of 15 to 30 minutes. 
+               Get up, eat something, go outside. You earned it.</li>
+       </ol>
+    </p>
+    <p id="tips">A few tips to make it stick:</p>
+    <p>
+         <ol>
+          <li> 🍂 Keep your phone out of reach during focus sessions — 
+                   not just on silent, physically away from you.</li>
+          <li> 🍂 Use Choppodoro for ONE subject or task per cycle. 
+                   Switching between subjects every session loses the flow.</li>
+          <li> 🍂 Track how many sessions something takes. 
+                   Over time you'll get better at estimating how long things 
+                   actually take you — which helps with planning.</li>
+          <li> 🍂 It's okay if you break focus sometimes. 
+                   Just pause the timer, deal with the thing, and come back. 
+                   Don't abandon the session entirely.</li>
+         </ol>
+    </p>
+    <p>Choppodoro was built by a developer who also happens to be 
+       a student trying to stay consistent. It's not a perfect tool — 
+       but it's a genuine one. If it helps even one person get through 
+      a tough study session, that's enough. 
+
+      Now stop reading this and go get something done. 
+      Chopper believes in you. 🏴‍☠️🍂</p>
+  </div>
+
+<script>
+    const container = document.getElementById('leaves-container');
+    const leafColors = ['#D53E0F', '#E86B3A', '#F0A070', '#9B0F06', '#E8956D'];
+ 
+    function createLeaf() {
+      const leaf = document.createElement('div');
+      leaf.classList.add('leaf');
+ 
+      leaf.style.left = (Math.random() * 95 + 2.5) + 'vw';
+ 
+      const size = Math.random() * 14 + 8 + 'px';
+      leaf.style.width = size;
+      leaf.style.height = size;
+ 
+      const duration = Math.random() * 4 + 4 + 's';
+      leaf.style.animationDuration = duration;
+ 
+      leaf.style.animationDelay = Math.random() * 5 + 's';
+ 
+      const color = leafColors[Math.floor(Math.random() * leafColors.length)];
+      leaf.style.background = color;
+      leaf.style.borderRadius = '80% 0 80% 0';
+ 
+      container.appendChild(leaf);
+ 
+      setTimeout(() => {
+        leaf.remove();
+      }, 10000);
+    }
+ 
+    setInterval(createLeaf, 400);
+</script>
+</body>
+</html>
