@@ -259,7 +259,7 @@ button:hover {
 
 @media (max-width: 768px) {
   body::before {
-    content: "Choppodoro is best experienced on desktop! 🍂";
+    content: "Choppodoro is best experienced on desktop! ";
     position: fixed;
     top: 50%;
     left: 50%;
