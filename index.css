@@ -145,7 +145,7 @@ body {
 /* ── buttons ── */
 #controls {
   position: absolute;
-  top: 55%;
+  top: 70%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
