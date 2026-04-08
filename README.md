@@ -55,11 +55,28 @@ choppodoro/
 └── README.md
 ```
 
+## Interactiive To Do list Panel
+
+Choppodoro now includes a built-in task management sidebar to help users organize their study sessions more effectively.
+
+The Todo panel supports:
+
+A fixed left-side task workspace
+Three default task rows available on startup
+Press Enter to create a new task instantly
+Press Backspace on an empty task to remove it
+Automatic scrolling when tasks exceed panel height
+Minimum task safeguard (at least 3 tasks always remain)
+Automatic saving using localStorage
+Tasks and checkbox states persist after page refresh
+
+This enhancement transforms Choppodoro from a simple timer into a structured productivity assistant.
+
 ---
 
 ## 🌐 Live Demo
 
-[View Choppodoro live →]  
+[View Choppodoro live →]  https://manushreereddy2222.github.io/Choppodoro/
 
 ---
 
