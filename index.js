@@ -226,4 +226,128 @@ hats.forEach(hat => {
  
 updateDisplay();
 updateChopper("idle");
- 
+
+const taskList = document.getElementById("task-list");
+
+taskList.addEventListener("keydown", function(e) {
+  if (e.key === "Enter") {
+    const inputs = document.querySelectorAll(".task-input");
+    const lastInput = inputs[inputs.length - 1];
+    if (document.activeElement === lastInput) {
+      createNewTask();
+    }
+  }
+});
+
+taskList.addEventListener("keydown", function(e) {
+  if (e.key === "Backspace") {
+    const inputs = document.querySelectorAll(".task-input");
+    if (inputs.length <= 3) return;
+    if (e.target.value === "") {
+      const currentRow = e.target.parentElement;
+      const previousRow = currentRow.previousElementSibling;
+      currentRow.remove();
+      saveTasks();
+      if (previousRow) {
+        previousRow.querySelector(".task-input").focus();
+      }
+    }
+  }
+});
+
+taskList.addEventListener("input", saveTasks);
+
+function createNewTask() {
+
+  const row = document.createElement("div");
+  row.className = "task-row";
+
+  const checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+
+  const input = document.createElement("input");
+  input.type = "text";
+  input.className = "task-input";
+
+  row.appendChild(checkbox);
+  row.appendChild(input);
+
+  taskList.appendChild(row);
+
+  input.focus();
+
+  saveTasks();
+
+}
+
+function saveTasks() {
+
+  const rows = document.querySelectorAll(".task-row");
+
+  const tasks = [];
+
+  rows.forEach(row => {
+
+    const checkbox = row.querySelector("input[type='checkbox']");
+    const input = row.querySelector(".task-input");
+
+    tasks.push({
+      text: input.value,
+      checked: checkbox.checked
+    });
+
+  });
+
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+
+}
+
+function loadTasks() {
+
+  const saved = JSON.parse(localStorage.getItem("tasks"));
+
+  if (!saved) return;
+
+  taskList.innerHTML = "";
+
+  saved.forEach(task => {
+
+    const row = document.createElement("div");
+    row.className = "task-row";
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = task.checked;
+
+    const input = document.createElement("input");
+    input.type = "text";
+    input.className = "task-input";
+    input.value = task.text;
+
+    row.appendChild(checkbox);
+    row.appendChild(input);
+
+    taskList.appendChild(row);
+
+  });
+
+  ensureMinimumTasks();
+
+}
+
+function ensureMinimumTasks() {
+
+  const rows = document.querySelectorAll(".task-row");
+
+  const missing = 3 - rows.length;
+
+  for (let i = 0; i < missing; i++) {
+
+    createNewTask();
+
+  }
+
+}
+
+loadTasks();
+
