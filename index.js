@@ -139,6 +139,7 @@ function handleSessionEnd() {
   } else {
     // break ended — back to focus
     isBreak = false;
+      alarmSound.loop=true;
       alarmSound.play();
     showNotification("Break's Over! Come Back and Press Start!! 💪");
     // light up completed session hat
@@ -157,7 +158,7 @@ function handleSessionEnd() {
       setTimeout(() => {
         session = 1;
         isBreak = false;
-        totalSeconds = focusInput.value * 60;
+        totalSeconds = Math.round(focusInput.value * 60);
         updateDisplay();
         updateChopper("idle");
         hats.forEach(hat => {
@@ -169,7 +170,7 @@ function handleSessionEnd() {
     }
  
     // load focus time and wait for user to click start
-    totalSeconds = focusInput.value * 60;
+    totalSeconds = Math.round(focusInput.value * 60);
     updateDisplay();
     message.innerHTML = "<h2>Ready for session " + session + "? 🍂</h2>";
     updateChopper("waiting");
@@ -183,6 +184,9 @@ startBtn.onclick = function() {
   isRunning = true;
   message.innerHTML = "<h2>Time to Focus! 📚</h2>";
   updateChopper("focus");
+  alarmSound.pause();
+  alarmSound.currentTime = 0;
+  alarmSound.loop=false;
   timerInterval = setInterval(tick, 1000);
 }
  
@@ -217,14 +221,14 @@ resetBtn.onclick = function() {
 // ── INPUT LISTENERS ──────────────────────────────────────────────
 focusInput.addEventListener("input", function() {
   if (!isRunning && !isBreak) {
-    totalSeconds = focusInput.value * 60;
+    totalSeconds = Math.round(focusInput.value * 60);
     updateDisplay();
   }
 });
  
 breakInput.addEventListener("input", function() {
   if (!isRunning && isBreak) {
-    totalSeconds = breakInput.value * 60;
+    totalSeconds = Math.round(breakInput.value * 60);
     updateDisplay();
   }
 });
