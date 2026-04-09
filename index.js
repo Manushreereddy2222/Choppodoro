@@ -1,3 +1,12 @@
+// request notification permission on page load
+
+if (Notification.permission !== "granted") {
+    Notification.requestPermission();
+}
+
+// alarm sound
+const alarmSound = document.getElementById("alarmSound");
+
 // ── LEAVES ──────────────────────────────────────────────────────
 const container = document.getElementById('leaves-container');
 const leafColors = ['#D53E0F', '#E86B3A', '#F0A070', '#9B0F06', '#E8956D'];
@@ -118,6 +127,8 @@ function handleSessionEnd() {
   if (!isBreak) {
     // focus ended — start break
     isBreak = true;
+    alarmSound.play();
+    showNotification("Focus Session Complete! Time for a break! ;)");
     totalSeconds = breakInput.value * 60;
     message.innerHTML = "<h2>Take a Break! ☕</h2>";
     updateDisplay();
@@ -128,7 +139,8 @@ function handleSessionEnd() {
   } else {
     // break ended — back to focus
     isBreak = false;
- 
+      alarmSound.play();
+    showNotification("Break's Over! Come Back and Press Start!! 💪");
     // light up completed session hat
     if (session <= 4) {
       hats[session - 1].style.opacity = "1";
@@ -350,4 +362,19 @@ function ensureMinimumTasks() {
 }
 
 loadTasks();
+
+function showNotification(message) {
+
+    if (Notification.permission === "granted") {
+
+        new Notification("Choppodoro", {
+            body: message,
+            icon: "hat.png"
+        });
+
+    }
+
+}
+
+
 
