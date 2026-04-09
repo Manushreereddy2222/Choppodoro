@@ -333,4 +333,71 @@ h3 {
   margin: 0;
 }
 
+@media (max-width: 768px) {
+
+  body {
+    overflow-y: auto;
+    text-align: center;
+  }
+
+  #navbar {
+   flex-direction: column;
+   gap: 10px;
+   text-align: center;
+  }
+
+  #timer{
+    width: 220px;
+    height: 220px;
+  }
+
+  #time {
+    font-size: 40px;
+  }
+
+  #inputs {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    position: static;
+    margin-top: 20px;
+  }
+  
+  #todo-panel {
+    position: static;
+    height: auto;
+    max-height: 260px;
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  #choppertop {
+    position: static;
+    margin-top: 20px;
+  }
+
+  #choppertop img {
+    width: 110px;
+  }
+  
+  #chopperBotton {
+    position: static;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  #chopperBottom img {
+    width: 140px;
+  }
+
+  #controls {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #pillar {
+    display: none;
+  }
+}
+
 

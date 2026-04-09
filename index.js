@@ -249,6 +249,8 @@ hats.forEach(hat => {
 updateDisplay();
 updateChopper("idle");
 
+// ── TASK LIST ───────────────────────────────────────────────────
+
 const taskList = document.getElementById("task-list");
 
 taskList.addEventListener("keydown", function(e) {
