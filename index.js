@@ -196,6 +196,9 @@ pauseBtn.onclick = function() {
   if (!isRunning) return;
   clearInterval(timerInterval);
   isRunning = false;
+  alarmSound.pause();
+  alarmSound.currentTime = 0;
+  alarmSound.loop=false;
   message.innerHTML = "<h2>Paused ⏸</h2>";
   updateChopper("idle");
 }
@@ -205,6 +208,9 @@ pauseBtn.onclick = function() {
 resetBtn.onclick = function() {
   clearInterval(timerInterval);
   isRunning = false;
+  alarmSound.pause();
+  alarmSound.currentTime = 0;
+  alarmSound.loop=false;
   isBreak = false;
   session = 1;
   totalSeconds = focusInput.value * 60;

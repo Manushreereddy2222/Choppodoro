@@ -318,4 +318,19 @@ h3 {
   opacity: 0.6;
 }
 
+#perm {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  left: 1250px;
+  color: #5E0006;
+  z-index: 2;
+}
+ 
+#perm h2 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 22px;
+  margin: 0;
+}
+
 
