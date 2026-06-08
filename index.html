@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>Choppodoro</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,84 +7,80 @@
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="index.css">
 </head>
- 
+
 <body>
- 
+
   <div id="leaves-container"></div>
- 
-  <div id="pillar">
-    <img src="pillar.png">
-  </div>
- 
-  <div id="choppertop">
-    <img src="chopper1.png" id="chopperIdle">
+
+  <!-- Decorative: stays absolute on all sizes -->
+  <div id="pillar"><img src="pillar.png"></div>
+  <div id="chopperBottom"><img src="wave.png"></div>
+
+  <!-- Navbar -->
+  <nav id="navbar">
+    <div id="brand">Choppodoro &lt;3</div>
+    <div id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+    </div>
+  </nav>
+
+  <!-- Main two-column layout -->
+  <div id="app">
+
+    <div id="center-col">
+      <div id="choppertop">
+        <img src="chopper1.png" id="chopperIdle">
+      </div>
+      <div id="message">
+        <h2>Time to Focus!</h2>
+      </div>
+      <div id="timer">
+        <div id="time">25:00</div>
+      </div>
+      <div id="controls">
+        <button id="start">Start</button>
+        <button id="pause">Pause</button>
+        <button id="reset">Reset</button>
+      </div>
+      <div id="progress">
+        <img src="hat.png">
+        <img src="hat.png">
+        <img src="hat.png">
+        <img src="hat.png">
+      </div>
+    </div>
+
+    <div id="right-col">
+      <div id="inputs">
+        <label for="work-duration">Focus:</label>
+        <input type="number" id="work-duration" value="25" min="1">
+        <label for="break-duration">Break:</label>
+        <input type="number" id="break-duration" value="5" min="1">
+      </div>
+      <div id="todo-panel">
+        <h3>Today's Tasks!!</h3>
+        <div id="task-list">
+          <div class="task-row">
+            <input type="checkbox">
+            <input type="text" class="task-input">
+          </div>
+          <div class="task-row">
+            <input type="checkbox">
+            <input type="text" class="task-input">
+          </div>
+          <div class="task-row">
+            <input type="checkbox">
+            <input type="text" class="task-input">
+          </div>
+        </div>
+      </div>
+      <p id="perm">"Allow Notifications to notify you when your sessions are complete!"</p>
+    </div>
+
   </div>
 
-  <div id="inputs">
-    <label for="work-duration">Focus:</label>
-    <input type="number" id="work-duration" value="25" min="1">
-    <label for="break-duration">Break:</label>
-    <input type="number" id="break-duration" value="5" min="1">
-  </div>
- 
-  <div id="message">
-    <h2>Time to Focus!</h2>
-  </div>
- 
-  <div id="timer">
-    <div id="time">25:00</div>
-  </div>
- 
-  <div id="controls">
-    <button id="start">Start</button>
-    <button id="pause">Pause</button>
-    <button id="reset">Reset</button>
-  </div>
- 
-  <div id="progress">
-    <img src="hat.png">
-    <img src="hat.png">
-    <img src="hat.png">
-    <img src="hat.png">
-  </div>
- 
-  <div id="chopperBottom">
-    <img src="wave.png">
-  </div>
-
-<div id="todo-panel">
-  <h3>Today's Tasks!!</h3>
-
-  <div id="task-list">
-    <div class="task-row">
-     <input type="checkbox">
-     <input type="text" class="task-input">
-    </div>
-    <div class="task-row">
-     <input type="checkbox">
-     <input type="text" class="task-input">
-    </div>
-    <div class="task-row">
-     <input type="checkbox">
-     <input type="text" class="task-input">
-    </div>
-  </div>
-</div>
-  
-  <div id="navbar">
-  <div id="brand">Choppodoro <3 </div>
-  <div id="nav-links">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-  </div>
-  </div>
-  </div>
   <audio id="alarmSound" src="alarm.mp3"></audio>
-  <p id="perm">"Allow Notifications to notify you <br> when your sessions are complete!"</p>
-<script src="index.js"></script>
+  <script src="index.js"></script>
 </body>
 </html>
-
-
-
- 
